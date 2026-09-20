@@ -5,6 +5,8 @@
 
 A static, privacy-respecting questionnaire for exploring ethical positions in the free-software and open-source ecosystem. It is inspired by the clarity of an “8values”-style result, but it describes a multidimensional profile rather than assigning a moral score.
 
+**Current quiz content version:** 1.1.0
+
 **Live site:** [y0uq.github.io/foss-ethics-quiz](https://y0uq.github.io/foss-ethics-quiz/)
 
 **Source:** [github.com/y0uq/foss-ethics-quiz](https://github.com/y0uq/foss-ethics-quiz)
