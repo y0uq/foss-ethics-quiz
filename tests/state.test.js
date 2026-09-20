@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { ARCHETYPES } from "../src/data/archetypes.js";
-import { QUESTIONS } from "../src/data/questions.js";
+import { QUESTIONS, QUIZ_VERSION } from "../src/data/questions.js";
 import { createNeutralAnswers, createConstrainedQuestionOrder, createSeededRandom } from "../src/scoring.js";
 import {
   answerQuestion,
@@ -46,9 +46,9 @@ test("corrupt and unknown answer state is discarded", () => {
   assert.equal(validateAttempt(attempt).valid, false);
 });
 
-test("incompatible schema versions are rejected", () => {
+test("incompatible and prior content versions are rejected", () => {
   const attempt = createAttempt(order, timestamp);
-  attempt.quizVersion = "0.0.1";
+  attempt.quizVersion = "1.0.0";
   assert.deepEqual(validateAttempt(attempt), { valid: false, reason: "incompatible-version" });
 });
 
@@ -72,9 +72,9 @@ test("share fragment round-trips and malformed payloads are rejected", () => {
   const fragment = createShareFragment(ARCHETYPES[0].id, scores);
   assert.deepEqual(parseShareFragment(fragment), {
     valid: true,
-    share: { archetypeId: ARCHETYPES[0].id, scores, quizVersion: "1.0.0" },
+    share: { archetypeId: ARCHETYPES[0].id, scores, quizVersion: QUIZ_VERSION },
   });
-  assert.equal(parseShareFragment("#foss-ethics-v1:v=1.0.0&a=gnu-purist").valid, false);
+  assert.equal(parseShareFragment(fragment.replace(`v=${QUIZ_VERSION}`, "v=1.0.0")).valid, false);
   assert.equal(parseShareFragment(`#${"x".repeat(257)}`).valid, false);
   assert.equal(parseShareFragment(`${fragment}&f=50`).valid, false);
 });

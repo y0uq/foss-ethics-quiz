@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import { AXES, QUESTION_COUNT, QUESTIONS, RESPONSE_OPTIONS } from "./data/questions.js";
+import { AXES, QUESTION_COUNT, QUESTIONS, QUIZ_VERSION, RESPONSE_OPTIONS } from "./data/questions.js";
 import { REPOSITORY_URL } from "./config.js";
 
 /** @param {string} tag @param {Record<string, unknown>} options @param {Array<Node|string>} children */
@@ -311,7 +311,7 @@ export function renderMethodology(root, model) {
   document.title = "How scoring works — FOSS Ethics Quiz";
   const section = element("section", { className: "methodology card" });
   section.append(
-    element("p", { className: "eyebrow", text: "Version 1.0.0 · exploratory" }),
+    element("p", { className: "eyebrow", text: `Version ${QUIZ_VERSION} · exploratory` }),
     heading(1, "How scoring works", "screen-title"),
     element("p", { className: "lede", text: "This questionnaire describes a profile; it does not measure virtue, political identity, or the one correct license for a project." }),
     heading(2, "Six independent axes", "section-heading"),

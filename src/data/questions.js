@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: CC-BY-SA-4.0
  */
 
-export const QUIZ_VERSION = "1.0.0";
+export const QUIZ_VERSION = "1.1.0";
 
 export const AXES = Object.freeze([
   Object.freeze({
@@ -81,13 +81,13 @@ export const QUESTIONS = Object.freeze([
   freezeQuestion({
     id: "freedom-development-method",
     primaryAxis: "freedom",
-    text: "Open source is mainly a more effective way to build software, rather than a question of user rights.",
+    text: "When choosing software, the practical results of open-source development matter more to me than the rights its license gives users.",
     weights: { freedom: -1 },
   }),
   freezeQuestion({
     id: "freedom-compromised",
     primaryAxis: "freedom",
-    text: "Software that denies essential user freedoms remains ethically compromised even when it is secure, polished, and free of charge.",
+    text: "Even when software is secure, polished, and free of charge, limiting users’ ability to study, modify, and share it remains an important ethical concern.",
     weights: { freedom: 1 },
   }),
   freezeQuestion({
@@ -97,16 +97,16 @@ export const QUESTIONS = Object.freeze([
     weights: { reciprocity: 1 },
   }),
   freezeQuestion({
-    id: "reciprocity-closed-product",
+    id: "reciprocity-redistributed-modifications",
     primaryAxis: "reciprocity",
-    text: "A company should be allowed to turn permissively licensed community code into a closed product.",
-    weights: { reciprocity: -1 },
+    text: "When publishing community-oriented software, licenses should generally require redistributed modifications to remain open source.",
+    weights: { reciprocity: 1 },
   }),
   freezeQuestion({
-    id: "reciprocity-fair-exchange",
+    id: "reciprocity-disclosure-choice",
     primaryAxis: "reciprocity",
-    text: "Copyleft is a fair exchange: receiving lasting freedoms creates an obligation to pass them on.",
-    weights: { reciprocity: 1 },
+    text: "People who redistribute modified community software should be free to decide whether to publish their changes.",
+    weights: { reciprocity: -1 },
   }),
   freezeQuestion({
     id: "reciprocity-friction",
@@ -115,10 +115,10 @@ export const QUESTIONS = Object.freeze([
     weights: { reciprocity: -1 },
   }),
   freezeQuestion({
-    id: "reciprocity-network-service",
+    id: "reciprocity-online-service-changes",
     primaryAxis: "reciprocity",
-    text: "Offering modified software only as an online service should not be an easy way around source-sharing obligations.",
-    clarification: "Some licenses extend source-sharing obligations to people who use modified software over a network.",
+    text: "When a provider changes community software to run an online service, it should generally share those changes with the people who use that service.",
+    clarification: "This asks what licenses should generally require; existing licenses differ.",
     weights: { reciprocity: 1 },
   }),
   freezeQuestion({
@@ -136,19 +136,20 @@ export const QUESTIONS = Object.freeze([
   freezeQuestion({
     id: "purity-distribution",
     primaryAxis: "purity",
-    text: "A distribution calling itself freedom-respecting should not make nonfree software effortless to install.",
+    text: "An operating system that presents itself as freedom-respecting should not make proprietary software the easiest option to install.",
     weights: { purity: 1 },
   }),
   freezeQuestion({
     id: "purity-drivers",
     primaryAxis: "purity",
     text: "Hardware support and everyday usability justify proprietary drivers when no realistic free alternative exists.",
+    clarification: "Drivers are software that lets an operating system use hardware such as graphics cards or Wi-Fi adapters.",
     weights: { purity: -1 },
   }),
   freezeQuestion({
     id: "purity-closed-platforms",
     primaryAxis: "purity",
-    text: "Using closed platforms to reach people can be worthwhile even when those platforms conflict with free-software ideals.",
+    text: "Using proprietary platforms to reach people can be worthwhile even when it means relying on proprietary software.",
     weights: { purity: -1 },
   }),
   freezeQuestion({
@@ -160,25 +161,25 @@ export const QUESTIONS = Object.freeze([
   freezeQuestion({
     id: "governance-product-owner",
     primaryAxis: "governance",
-    text: "A clear corporate product owner often keeps an open-source project more focused and sustainable.",
+    text: "For an open-source project, having one company make final product decisions can be preferable to shared community governance.",
     weights: { governance: -1 },
   }),
   freezeQuestion({
     id: "governance-foundations",
     primaryAxis: "governance",
-    text: "Independent foundations are generally better long-term stewards of important shared infrastructure than individual vendors.",
+    text: "Important shared infrastructure should generally be governed by an independent foundation rather than a single vendor.",
     weights: { governance: 1 },
   }),
   freezeQuestion({
-    id: "governance-track-record",
+    id: "governance-company-control",
     primaryAxis: "governance",
-    text: "A benevolent company with a strong track record does not need elaborate community governance.",
+    text: "A project can be responsibly governed by a company even if contributors and users have little formal say in major decisions.",
     weights: { governance: -1 },
   }),
   freezeQuestion({
     id: "governance-fork-voice",
     primaryAxis: "governance",
-    text: "The ability to fork is not a complete substitute for having a meaningful voice in a project’s governance.",
+    text: "The legal option to copy a project and start a new version is not a complete substitute for contributors having a meaningful voice in its current decisions.",
     weights: { governance: 1 },
   }),
   freezeQuestion({
@@ -190,25 +191,25 @@ export const QUESTIONS = Object.freeze([
   freezeQuestion({
     id: "commerce-paid-services",
     primaryAxis: "commerce",
-    text: "Paid support, hosting, and enterprise features are legitimate ways to fund freely licensed software.",
+    text: "Charging for support around freely licensed software is a legitimate way to fund its development.",
     weights: { commerce: 1 },
   }),
   freezeQuestion({
-    id: "commerce-corruption",
+    id: "commerce-influence-concern",
     primaryAxis: "commerce",
-    text: "Commercial influence usually corrupts a FOSS project even when the source remains available.",
+    text: "When a company has substantial influence over a FOSS project, that influence is usually a reason for concern even if the source remains available.",
     weights: { commerce: -1 },
   }),
   freezeQuestion({
     id: "commerce-dual-licensing",
     primaryAxis: "commerce",
-    text: "Dual licensing can be an acceptable sustainability strategy when contributors understand and consent to the arrangement.",
+    text: "It can be acceptable for a project to offer the same code under a free license for some users and a paid proprietary license for others, when contributors have agreed to that arrangement.",
     weights: { commerce: 1 },
   }),
   freezeQuestion({
     id: "commerce-volunteers",
     primaryAxis: "commerce",
-    text: "Software built for profit is inherently less aligned with FOSS values than volunteer-built software.",
+    text: "A profit motive usually makes a FOSS project less aligned with its community than volunteer development does.",
     weights: { commerce: -1 },
   }),
   freezeQuestion({
@@ -218,27 +219,27 @@ export const QUESTIONS = Object.freeze([
     weights: { sovereignty: 1 },
   }),
   freezeQuestion({
-    id: "sovereignty-hosted-goodwill",
+    id: "sovereignty-hosted-dependence",
     primaryAxis: "sovereignty",
-    text: "A seamless hosted service is often worth depending on a provider’s continued goodwill.",
+    text: "For many people, the convenience of a hosted service is worth relying on a provider to keep operating it.",
     weights: { sovereignty: -1 },
   }),
   freezeQuestion({
     id: "sovereignty-interoperability",
     primaryAxis: "sovereignty",
-    text: "Open standards and interoperability matter as much as access to a program’s source code.",
+    text: "For software users, the ability to exchange data with other tools through publicly documented standards matters as much as access to the program’s source code.",
     weights: { sovereignty: 1 },
   }),
   freezeQuestion({
     id: "sovereignty-server-control",
     primaryAxis: "sovereignty",
-    text: "For most people, who controls the server matters little if the client software is open source.",
+    text: "For most people, it matters little who operates a service’s servers if the software on their own device is open source.",
     weights: { sovereignty: -1 },
   }),
   freezeQuestion({
     id: "sovereignty-self-hosting",
     primaryAxis: "sovereignty",
-    text: "Important personal or community infrastructure should remain realistically self-hostable.",
+    text: "People and communities should be able to run important services for themselves without depending on a single provider.",
     weights: { sovereignty: 1 },
   }),
 ]);

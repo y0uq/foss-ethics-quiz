@@ -1,6 +1,6 @@
 {
   "name": "foss-ethics-quiz",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "A private, transparent quiz for mapping free-software and open-source ethics.",
   "type": "module",

@@ -3,7 +3,15 @@
 
 # Methodology
 
-FOSS Ethics Quiz v1.0.0 is an exploratory, editorial instrument. It is designed to make distinct traditions inside free and open-source software easier to discuss; it is not psychometrically validated, diagnostic, or a license-selection tool.
+FOSS Ethics Quiz v1.1.0 is an exploratory, editorial instrument. It is designed to make distinct traditions inside free and open-source software easier to discuss; it is not psychometrically validated, diagnostic, or a license-selection tool.
+
+## Version history
+
+### 1.1.0 — question-set audit
+
+This content release replaces an invalid reciprocity item that asked whether a permissive license should allow conduct it deliberately authorizes. The new statement asks directly whether redistribution should carry a source-sharing condition, and is positively keyed for reciprocity. To retain the required reverse-keying balance, a separate reciprocity item now asks whether redistributors should be free to choose disclosure and is negatively keyed.
+
+The release also removes undefined specialist terms, loaded labels, false either/or framings, and bundled claims from other statements. It explains online-service sharing, driver, server-control, and data-exchange scenarios in ordinary language. The six axes, question count, scoring formula, prototypes, and archetype reachability targets are unchanged. Because wording and six question IDs changed, v1.1.0 deliberately rejects saved attempts and share fragments created by v1.0.0.
 
 ## Axes
 
@@ -90,4 +98,4 @@ This check establishes implementation reachability, not that the prototypes are 
 
 The questions and prototype values are editorial hypotheses. They can contain cultural, linguistic, or project-context bias; two people may read a practical constraint differently; and real views can change by context. The archetype is a conversation starter, not a label to impose on a person.
 
-Quiz semantic versioning is independent of git history. Any change to questions, weights, axes, scoring, or prototypes must increase the quiz version and explicitly decide whether saved attempts and share links can migrate. Version 1.0.0 rejects incompatible local storage and fragments rather than silently changing an old result’s meaning.
+Quiz semantic versioning is independent of git history. Any change to questions, weights, axes, scoring, or prototypes must increase the quiz version and explicitly decide whether saved attempts and share links can migrate. Version 1.1.0 rejects incompatible local storage and fragments rather than silently changing an old result’s meaning.

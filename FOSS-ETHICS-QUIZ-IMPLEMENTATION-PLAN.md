@@ -164,48 +164,48 @@ Initial content specification (Codex may polish grammar but must not alter the m
 1. “A user’s ability to study, modify, and share software is an ethical right, not merely a development advantage.” (`freedom: +1`)
 2. “If closed software produces the best practical result, its license is usually a secondary concern.” (`freedom: -1`)
 3. “Public institutions should prefer software that citizens are legally allowed to inspect and adapt.” (`freedom: +1`)
-4. “Open source is mainly a more effective way to build software, rather than a question of user rights.” (`freedom: -1`)
-5. “Software that denies essential user freedoms remains ethically compromised even when it is secure, polished, and free of charge.” (`freedom: +1`)
+4. “When choosing software, the practical results of open-source development matter more to me than the rights its license gives users.” (`freedom: -1`)
+5. “Even when software is secure, polished, and free of charge, limiting users’ ability to study, modify, and share it remains an important ethical concern.” (`freedom: +1`)
 
 #### Reciprocity (`reciprocity`)
 
 6. “Anyone may use my code, but distributing a modified version should require sharing its source under the same freedoms.” (`reciprocity: +1`)
-7. “A company should be allowed to turn permissively licensed community code into a closed product.” (`reciprocity: -1`)
-8. “Copyleft is a fair exchange: receiving lasting freedoms creates an obligation to pass them on.” (`reciprocity: +1`)
+7. “When publishing community-oriented software, licenses should generally require redistributed modifications to remain open source.” (`reciprocity: +1`)
+8. “People who redistribute modified community software should be free to decide whether to publish their changes.” (`reciprocity: -1`)
 9. “License obligations usually create more friction than the downstream openness they preserve is worth.” (`reciprocity: -1`)
-10. “Offering modified software only as an online service should not be an easy way around source-sharing obligations.” (`reciprocity: +1`; clarification may mention network copyleft without naming it as the answer)
+10. “When a provider changes community software to run an online service, it should generally share those changes with the people who use that service.” (`reciprocity: +1`; clarification notes that existing licenses differ)
 
 #### Libre-only consistency (`purity`)
 
 11. “I would accept a less convenient setup to avoid relying on proprietary software.” (`purity: +1`)
 12. “Recommending a mostly open system with a few proprietary pieces is often the best way to bring people toward FOSS.” (`purity: -1`)
-13. “A distribution calling itself freedom-respecting should not make nonfree software effortless to install.” (`purity: +1`)
+13. “An operating system that presents itself as freedom-respecting should not make proprietary software the easiest option to install.” (`purity: +1`)
 14. “Hardware support and everyday usability justify proprietary drivers when no realistic free alternative exists.” (`purity: -1`)
-15. “Using closed platforms to reach people can be worthwhile even when those platforms conflict with free-software ideals.” (`purity: -1`)
+15. “Using proprietary platforms to reach people can be worthwhile even when it means relying on proprietary software.” (`purity: -1`)
 
 #### Community-led governance (`governance`)
 
 16. “Major project decisions should be accountable to contributors and users, not ultimately controlled by one company.” (`governance: +1`)
-17. “A clear corporate product owner often keeps an open-source project more focused and sustainable.” (`governance: -1`)
-18. “Independent foundations are generally better long-term stewards of important shared infrastructure than individual vendors.” (`governance: +1`)
-19. “A benevolent company with a strong track record does not need elaborate community governance.” (`governance: -1`)
-20. “The ability to fork is not a complete substitute for having a meaningful voice in a project’s governance.” (`governance: +1`)
+17. “For an open-source project, having one company make final product decisions can be preferable to shared community governance.” (`governance: -1`)
+18. “Important shared infrastructure should generally be governed by an independent foundation rather than a single vendor.” (`governance: +1`)
+19. “A project can be responsibly governed by a company even if contributors and users have little formal say in major decisions.” (`governance: -1`)
+20. “The legal option to copy a project and start a new version is not a complete substitute for contributors having a meaningful voice in its current decisions.” (`governance: +1`)
 
 #### Commercial participation (`commerce`)
 
 21. “Companies earning substantial profit from FOSS can strengthen the ecosystem when they contribute back.” (`commerce: +1`)
-22. “Paid support, hosting, and enterprise features are legitimate ways to fund freely licensed software.” (`commerce: +1`)
-23. “Commercial influence usually corrupts a FOSS project even when the source remains available.” (`commerce: -1`)
-24. “Dual licensing can be an acceptable sustainability strategy when contributors understand and consent to the arrangement.” (`commerce: +1`)
-25. “Software built for profit is inherently less aligned with FOSS values than volunteer-built software.” (`commerce: -1`)
+22. “Charging for support around freely licensed software is a legitimate way to fund its development.” (`commerce: +1`)
+23. “When a company has substantial influence over a FOSS project, that influence is usually a reason for concern even if the source remains available.” (`commerce: -1`)
+24. “It can be acceptable for a project to offer the same code under a free license for some users and a paid proprietary license for others, when contributors have agreed to that arrangement.” (`commerce: +1`)
+25. “A profit motive usually makes a FOSS project less aligned with its community than volunteer development does.” (`commerce: -1`)
 
 #### User sovereignty (`sovereignty`)
 
 26. “Users should be able to export their data in a documented format and move to a competing tool.” (`sovereignty: +1`)
-27. “A seamless hosted service is often worth depending on a provider’s continued goodwill.” (`sovereignty: -1`)
-28. “Open standards and interoperability matter as much as access to a program’s source code.” (`sovereignty: +1`)
-29. “For most people, who controls the server matters little if the client software is open source.” (`sovereignty: -1`)
-30. “Important personal or community infrastructure should remain realistically self-hostable.” (`sovereignty: +1`)
+27. “For many people, the convenience of a hosted service is worth relying on a provider to keep operating it.” (`sovereignty: -1`)
+28. “For software users, the ability to exchange data with other tools through publicly documented standards matters as much as access to the program’s source code.” (`sovereignty: +1`)
+29. “For most people, it matters little who operates a service’s servers if the software on their own device is open source.” (`sovereignty: -1`)
+30. “People and communities should be able to run important services for themselves without depending on a single provider.” (`sovereignty: +1`)
 
 Content safeguards:
 
@@ -336,7 +336,7 @@ Persist only in `localStorage` under a namespaced key such as `fossEthicsQuiz:v1
 ```js
 {
   schemaVersion: 1,
-  quizVersion: "1.0.0",
+  quizVersion: "1.1.0",
   questionOrder: [/* question IDs */],
   answers: { /* question ID: -2..2 */ },
   currentIndex: 0,
