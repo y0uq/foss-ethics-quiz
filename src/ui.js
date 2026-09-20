@@ -4,6 +4,7 @@
  */
 
 import { AXES, QUESTION_COUNT, QUESTIONS, RESPONSE_OPTIONS } from "./data/questions.js";
+import { REPOSITORY_URL } from "./config.js";
 
 /** @param {string} tag @param {Record<string, unknown>} options @param {Array<Node|string>} children */
 function element(tag, options = {}, children = []) {
@@ -120,7 +121,7 @@ export function renderLanding(root, model) {
 
   const secondary = actionRow([
     button("How scoring works", events.methodology, "button button--text"),
-    element("a", { href: "./README.md", className: "button button--text", text: "Project source & docs" }),
+    element("a", { href: REPOSITORY_URL, target: "_blank", rel: "noopener noreferrer", className: "button button--text", text: "Project source & docs" }),
   ], "action-row action-row--secondary");
   root.replaceChildren(card, principles, secondary);
   focusViewHeading(root);
@@ -271,7 +272,7 @@ export function renderResults(root, model) {
   ]);
   const closing = element("section", { className: "result-closing" }, [
     actions,
-    actionRow([button("How scoring works", events.methodology, "button button--text"), element("a", { href: "./README.md", className: "button button--text", text: "Project source & docs" })], "action-row action-row--secondary"),
+    actionRow([button("How scoring works", events.methodology, "button button--text"), element("a", { href: REPOSITORY_URL, target: "_blank", rel: "noopener noreferrer", className: "button button--text", text: "Project source & docs" })], "action-row action-row--secondary"),
     element("p", { className: "disclaimer", text: "Exploratory and descriptive, not a license recommendation. Unofficial; not affiliated with or endorsed by GNU, FSF, OSI, Debian, or any vendor." }),
   ]);
   const sections = [intro, renderDrivers(result), explanation, strengths, misconception, renderAxisBars(scores), neighbor, closing].filter(Boolean);
