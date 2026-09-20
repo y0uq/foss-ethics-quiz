@@ -2,6 +2,8 @@
 
 import { defineConfig } from "playwright/test";
 
+const baseURL = process.env.PLAYWRIGHT_BASE_URL || "http://127.0.0.1:4173";
+
 export default defineConfig({
   testDir: "./tests",
   testMatch: "browser.spec.js",
@@ -10,13 +12,13 @@ export default defineConfig({
   fullyParallel: false,
   reporter: process.env.CI ? "github" : "list",
   use: {
-    baseURL: "http://127.0.0.1:4173",
+    baseURL,
     browserName: "chromium",
     headless: true,
     screenshot: "only-on-failure",
     trace: "retain-on-failure",
   },
-  webServer: {
+  webServer: process.env.PLAYWRIGHT_BASE_URL ? undefined : {
     command: "node scripts/server.mjs",
     port: 4173,
     reuseExistingServer: !process.env.CI,

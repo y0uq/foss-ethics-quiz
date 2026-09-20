@@ -10,6 +10,8 @@ import { createShareFragment } from "../src/state.js";
 
 const neutralScores = { freedom: 50, reciprocity: 50, purity: 50, governance: 50, commerce: 50, sovereignty: 50 };
 const browserErrors = new WeakMap();
+const siteBaseURL = process.env.PLAYWRIGHT_BASE_URL || "http://127.0.0.1:4173";
+const siteURL = (suffix = "") => new URL(suffix ? `./${suffix}` : "./", siteBaseURL).toString();
 
 async function answerCurrentQuestion(page, label = "Neutral / unsure") {
   await page.getByRole("radio", { name: label, exact: true }).check();
@@ -43,7 +45,7 @@ test.afterEach(async ({ page }) => {
 });
 
 test("landing, answered question, and results have no serious axe violations", async ({ page }) => {
-  await page.goto("/");
+  await page.goto(siteURL());
   await expect(page.getByRole("heading", { level: 1, name: "FOSS Ethics Quiz" })).toBeVisible();
   await expectNoSeriousAxeViolations(page);
 
@@ -57,7 +59,7 @@ test("landing, answered question, and results have no serious axe violations", a
 });
 
 test("quiz navigation preserves answers, resumes after reload, and supports restarting", async ({ page }) => {
-  await page.goto("/");
+  await page.goto(siteURL());
   await page.getByRole("button", { name: "Start the quiz" }).click();
   await expect(page.getByRole("button", { name: "Next" })).toBeDisabled();
   await answerCurrentQuestion(page, "Agree");
@@ -79,7 +81,7 @@ test("quiz navigation preserves answers, resumes after reload, and supports rest
 });
 
 test("keyboard input can select an answer and results expose bars, review, and retake", async ({ page }) => {
-  await page.goto("/");
+  await page.goto(siteURL());
   await page.getByRole("button", { name: "Start the quiz" }).click();
   const firstRadio = page.getByRole("radio", { name: "Agree", exact: true });
   await firstRadio.focus();
@@ -99,14 +101,14 @@ test("valid shared profile renders without local answers and malformed fragments
   const page = await context.newPage();
   const result = getResult(neutralScores);
   const fragment = createShareFragment(result.winner.archetype.id, neutralScores);
-  await page.goto(`/${fragment}`);
+  await page.goto(siteURL(fragment));
   await expect(page.getByText("Shared result", { exact: false })).toBeVisible();
   await expect(page.getByRole("heading", { name: result.winner.archetype.name })).toBeVisible();
   await context.close();
 
   const invalidContext = await browser.newContext();
   const invalidPage = await invalidContext.newPage();
-  await invalidPage.goto("/#not-a-valid-shared-result");
+  await invalidPage.goto(siteURL("#not-a-valid-shared-result"));
   await expect(invalidPage.getByRole("heading", { name: "FOSS Ethics Quiz" })).toBeVisible();
   await expect(invalidPage.getByText("We couldn’t read that shared result link.")).toBeVisible();
   await invalidContext.close();
@@ -118,7 +120,9 @@ test("storage-disabled sessions and the GitHub Pages project subpath both remain
     Object.defineProperty(window, "localStorage", { get() { throw new Error("disabled for test"); } });
   });
   const page = await context.newPage();
-  await page.goto("/foss-ethics-quiz/");
+  await page.goto(process.env.PLAYWRIGHT_BASE_URL
+    ? siteURL()
+    : new URL("./foss-ethics-quiz/", siteBaseURL).toString());
   await expect(page.getByRole("heading", { name: "FOSS Ethics Quiz" })).toBeVisible();
   await expect(page.getByText("Browser storage is unavailable", { exact: false })).toBeVisible();
   await page.getByRole("button", { name: "Start the quiz" }).click();
@@ -131,9 +135,9 @@ test("storage-disabled sessions and the GitHub Pages project subpath both remain
 test("the browser makes no requests to external origins", async ({ page }) => {
   const externalRequests = [];
   page.on("request", (request) => {
-    if (new URL(request.url()).origin !== "http://127.0.0.1:4173") externalRequests.push(request.url());
+    if (new URL(request.url()).origin !== new URL(siteBaseURL).origin) externalRequests.push(request.url());
   });
-  await page.goto("/");
+  await page.goto(siteURL());
   await page.getByRole("button", { name: "Start the quiz" }).click();
   await answerCurrentQuestion(page);
   assert.deepEqual(externalRequests, []);
