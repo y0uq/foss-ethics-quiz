@@ -1,0 +1,24 @@
+FOSS Ethics Quiz licensing notice
+================================
+
+SPDX-License-Identifier: AGPL-3.0-or-later AND CC-BY-SA-4.0
+
+The software in this repository, including JavaScript, CSS, automated tests,
+workflow definitions, and scripts, is licensed under the GNU Affero General
+Public License version 3 or (at your option) any later version
+(`AGPL-3.0-or-later`).
+
+The questionnaire statements, archetype descriptions, explanatory prose, and
+project documentation are licensed under the Creative Commons Attribution-
+ShareAlike 4.0 International license (`CC-BY-SA-4.0`).
+
+Source files identify their applicable license with SPDX headers where that is
+practical. If a file does not contain a header, treat code as AGPL-3.0-or-later
+and human-readable content as CC-BY-SA-4.0. The two complete, unmodified license
+texts are provided in:
+
+* LICENSES/AGPL-3.0-or-later.txt
+* LICENSES/CC-BY-SA-4.0.txt
+
+This notice does not grant trademark rights. Names of organizations, companies,
+and projects are used only for descriptive purposes.

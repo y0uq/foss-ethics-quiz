@@ -1,0 +1,17 @@
+{
+  "name": "FOSS Ethics Quiz",
+  "short_name": "FOSS Ethics Quiz",
+  "description": "A private, transparent questionnaire for exploring free-software and open-source ethics.",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#111316",
+  "theme_color": "#111316",
+  "icons": [
+    {
+      "src": "./assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A private, transparent questionnaire for exploring free-software and open-source ethics.">
+    <meta name="referrer" content="no-referrer">
+    <meta name="color-scheme" content="light dark">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; connect-src 'none'; font-src 'self'; form-action 'self'; frame-src 'none'; img-src 'self' data:; object-src 'none'; script-src 'self'; style-src 'self'">
+    <meta property="og:title" content="FOSS Ethics Quiz">
+    <meta property="og:description" content="Map your software-freedom, licensing, governance, and adoption values—locally, without tracking.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="FOSS Ethics Quiz">
+    <meta name="twitter:description" content="A private, transparent questionnaire for exploring FOSS ethics.">
+    <title>FOSS Ethics Quiz — map your FOSS values</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <a class="site-name" href="./" aria-label="FOSS Ethics Quiz home">FOSS Ethics Quiz</a>
+      <span class="site-version">v1.0.0 · exploratory</span>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <div id="app" class="app-shell">
+        <section class="card no-script-message">
+          <h1>FOSS Ethics Quiz</h1>
+          <p>This quiz needs JavaScript to calculate scores locally in your browser. Its methodology and source files remain available in this project.</p>
+          <p><a href="./README.md">Read the project documentation</a></p>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <p>Built as a static, privacy-respecting project. No accounts, tracking, or remote runtime dependencies.</p>
+    </footer>
+    <div id="announcements" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+    <noscript>
+      <p class="noscript-banner">JavaScript is required for the interactive quiz. No answers can be collected without it.</p>
+    </noscript>
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
